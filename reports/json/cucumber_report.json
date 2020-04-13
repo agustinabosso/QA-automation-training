@@ -1,0 +1,88 @@
+[
+  {
+    "description": "  As a customer\n  I want to be able to start the advanced signature creation\n  So that I can send a document to be signed by an advanced signature",
+    "keyword": "Feature",
+    "name": "Advanced signature",
+    "line": 2,
+    "id": "advanced-signature",
+    "tags": [
+      {
+        "name": "@automation_training",
+        "line": 1
+      }
+    ],
+    "uri": "e2e/features/html_form_example.feature",
+    "elements": [
+      {
+        "id": "advanced-signature;",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "",
+        "tags": [
+          {
+            "name": "@automation_training",
+            "line": 1
+          },
+          {
+            "name": "@test-1",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I am on the index page",
+            "match": {
+              "location": "typeScript/features/step_definitions/index_steps.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 435000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I click on \"HTML form example\" option",
+            "match": {
+              "location": "typeScript/features/step_definitions/index_steps.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 715000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I validate the page title is \"Basic HTML Form Example lalala\"",
+            "match": {
+              "location": "typeScript/features/step_definitions/html_form_test_steps.js:20"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 90000000,
+              "error_message": "AssertionError\n    + expected - actual\n\n    -Basic HTML Form Example\n    +Basic HTML Form Example lalala\n\n    at Object.<anonymous> (/Users/agustinabosso/Desktop/automation-training/typeScript/features/step_definitions/html_form_test_steps.js:21:19)\n    at Generator.next (<anonymous>)\n    at fulfilled (/Users/agustinabosso/Desktop/automation-training/typeScript/features/step_definitions/html_form_test_steps.js:4:58)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "node_modules/protractor-cucumber-framework/lib/resultsCapturer.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
