@@ -1,6 +1,7 @@
-# signaturit-e2e
+# Automation training 
 
-Project Description
+Example project using Protractor with Cucumber and Page Objects
+
 
 # How to install
 
@@ -8,6 +9,11 @@ Project Description
 
 - nvm (v8.9.3)
 - JDK 8 (https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+## Clone repository
+- git clone git@github.com:agustinabosso/QA-automation-training.git
+- cd QA-automation-training
+
 
 ## Steps
 
@@ -19,7 +25,7 @@ Project Description
 
 	`npm install`
 	
-3. Start Webdriver Server
+3. Start Webdriver Manager (in 1 terminal window)
 
     `npm start`
     
@@ -27,7 +33,6 @@ Project Description
 
     `tags="@metatag" npm run e2e`
     
-
 # Collaborators
 
-- :rabbit: Agustina Bosso
+- :tropical_drink: Agustina Bosso :beers:
