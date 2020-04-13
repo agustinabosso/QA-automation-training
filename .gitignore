@@ -1,0 +1,8 @@
+node_modules/
+TypeScript/
+typeScript/
+reports/
+.DS_Store
+.idea
+.protractor-fail-fast
+package-lock.json
