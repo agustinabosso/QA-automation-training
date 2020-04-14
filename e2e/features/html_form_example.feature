@@ -9,11 +9,11 @@ Feature: Accessing HTML form test
     When I click on "HTML form example" option
 
   @test-1
-  Scenario:
+  Scenario: Validate the redirection to Html form example page
     Then I validate the page title is "Basic HTML Form Example"
 
   @test-2
-  Scenario: Validate the redirection to Html form example page
+  Scenario: Complete user name, password and comment fields in HTML form
     And I enter "Agus bosso" in "username" field
     And I enter "corona123" in "password" field
     And I enter "HTML uses form elements with sub input, label, textarea, select and option elements." in "textarea comment" field
