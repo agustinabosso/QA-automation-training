@@ -7,12 +7,16 @@ import {
 } from "protractor";
 
 export class FormProcessorPage {
-  private explanationText: ElementFinder;
-  private usernameValue: ElementFinder;
+  public explanationText: ElementFinder;
+  public usernameValue: ElementFinder;
+  public passwordValue: ElementFinder;
+  public commentValue: ElementFinder;
 
   constructor() {
     this.explanationText = element(by.className("explanation"));
     this.usernameValue = element(by.id("_valueusername"));
+    this.passwordValue = element(by.id("_valuepassword"));
+    this.commentValue = element(by.id("_valuecomments"));
   }
 
   /**
@@ -32,5 +36,15 @@ export class FormProcessorPage {
   public async getUsernameText() {
     await browser.wait(EC.visibilityOf(this.usernameValue));
     return this.usernameValue.getText();
+  }
+
+  public async getPasswordValue() {
+    await browser.wait(EC.visibilityOf(this.passwordValue));
+    return this.passwordValue.getText();
+  }
+
+  public async getCommentValue() {
+    await browser.wait(EC.visibilityOf(this.commentValue));
+    return this.commentValue.getText();
   }
 }

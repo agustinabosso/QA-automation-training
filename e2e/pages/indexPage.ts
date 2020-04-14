@@ -7,7 +7,7 @@ import {
 } from "protractor";
 
 export class IndexPage {
-  private htmlFormExample: ElementFinder;
+  public htmlFormExample: ElementFinder;
 
   constructor() {
     this.htmlFormExample = element(by.id("htmlformtest"));

@@ -7,16 +7,18 @@ import {
 } from "protractor";
 
 export class HtmlFormTestPage {
-  private pageTitle: ElementFinder;
-  private usernameInput: ElementFinder;
-  private passwordInput: ElementFinder;
-  private commentTextArea: ElementFinder;
-  private submitButton: ElementFinder;
+  public pageTitle: ElementFinder;
+  public formContainer: ElementFinder;
+  public usernameInput: ElementFinder;
+  public passwordInput: ElementFinder;
+  public commentTextArea: ElementFinder;
+  public submitButton: ElementFinder;
 
   constructor() {
     this.usernameInput = element(by.name("username"));
     this.passwordInput = element(by.name("password"));
     this.commentTextArea = element(by.name("comments"));
+    this.formContainer = element(by.name("HTMLFormElements"));
     this.pageTitle = element(by.tagName("h1"));
     this.submitButton = element(by.buttonText("submit"));
   }
@@ -54,7 +56,7 @@ export class HtmlFormTestPage {
   }
 
   public async clickOnSubmitButton() {
-    await browser.wait(EC.elementToBeClickable(this.submitButton));
+    await browser.wait(EC.visibilityOf(this.submitButton));
     return this.submitButton.click();
   }
 }
