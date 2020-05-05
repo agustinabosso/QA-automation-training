@@ -17,6 +17,14 @@ Feature: Accessing HTML form test
     And I enter "Agus bosso" in "username" field
     And I enter "corona123" in "password" field
     And I enter "HTML uses form elements with sub input, label, textarea, select and option elements." in "textarea comment" field
+    And I select checkbox "2" in checkbox items section
+    And I select checkbox "1" in checkbox items section
+    And I deselect checkbox "3" in checkbox items section
+    And I select radio "1" in radio items section
+    And I select "Drop Down Item 3" from dropdown
+    And I deselect all options in multiple selects value
+    And I select "Selection Item 3" from multiple selection
+    And I select "Selection Item 1" from multiple selection
     And I click on "Submit" button
     Then "You submitted a form" message is displayed
     And "username" submitted value is "Agus bosso"

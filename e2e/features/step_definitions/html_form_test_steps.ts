@@ -29,8 +29,28 @@ When(/^I enter "([^"]*)" in "([^"]*)" field$/, async (text, option) => {
     }
 });
 
+When(/^I select checkbox "([^"]*)" in checkbox items section$/, async (option) => {
+    await htmlFormTestPage.selectCheckboxByText(option);
+});
+
+When(/^I deselect checkbox "([^"]*)" in checkbox items section$/, async (option) => {
+    await htmlFormTestPage.deselectCheckboxByText(option);
+});
+
+When(/^I select radio "([^"]*)" in radio items section$/, async (index) => {
+    await htmlFormTestPage.selectRadioButton(index);
+});
+
 When(/^I click on "([^"]*)" button$/, async (buttonText) => {
     await htmlFormTestPage.clickOnSubmitButton();
+});
+
+When(/^I select "([^"]*)" from (dropdown|multiple selection)$/, async (option, type) => {
+    await htmlFormTestPage.selectSelectionOption(option);
+});
+
+When(/^I deselect all options in multiple selects value$/, async () => {
+    await htmlFormTestPage.deselectAllOptions();
 });
 
 // THEN
