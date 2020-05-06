@@ -1,7 +1,7 @@
 import {
   browser,
   by,
-  element,
+  element, ElementArrayFinder,
   ElementFinder,
   ExpectedConditions as EC,
 } from "protractor";
@@ -13,6 +13,7 @@ export class HtmlFormTestPage {
   public passwordInput: ElementFinder;
   public commentTextArea: ElementFinder;
   public submitButton: ElementFinder;
+  public checkboxes: ElementArrayFinder;
 
   constructor() {
     this.usernameInput = element(by.name("username"));
@@ -21,6 +22,7 @@ export class HtmlFormTestPage {
     this.formContainer = element(by.name("HTMLFormElements"));
     this.pageTitle = element(by.tagName("h1"));
     this.submitButton = element(by.buttonText("submit"));
+    this.checkboxes = element.all(by.name("checkboxes[]"));
   }
 
   /**
@@ -58,5 +60,21 @@ export class HtmlFormTestPage {
   public async clickOnSubmitButton() {
     await browser.wait(EC.visibilityOf(this.submitButton));
     return this.submitButton.click();
+  }
+
+  public async selectCheckboxByText(text) {
+    const size = await this.checkboxes.count();
+    console.log("Size ", size);
+    for (let i=0; i<size; i++)  {
+      const checkbox = this.checkboxes.get(i);
+      // console.log("Checkbox ", checkbox);
+      const checkboxText = await checkbox.getAttribute("value");
+      console.log("Value ", checkboxText);
+      const isCheckboxSelected = await checkbox.isSelected();
+      console.log("IsSelected ", isCheckboxSelected);
+      if (!(checkboxText.includes(text) && !isCheckboxSelected)) {
+        await checkbox.click();
+      }
+    }
   }
 }

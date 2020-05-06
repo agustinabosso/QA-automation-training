@@ -17,9 +17,11 @@ Feature: Accessing HTML form test
     And I enter "Agus bosso" in "username" field
     And I enter "corona123" in "password" field
     And I enter "HTML uses form elements with sub input, label, textarea, select and option elements." in "textarea comment" field
-    And I click on "Submit" button
-    Then "You submitted a form" message is displayed
-    And "username" submitted value is "Agus bosso"
-    And "password" submitted value is "corona123"
-    And "comments" submitted value is "HTML uses form elements with sub input, label, textarea, select and option elements."
+    And I select checkbox "2" in checkbox items section
+    And I select checkbox "1" in checkbox items section
+    #And I click on "Submit" button
+    #Then "You submitted a form" message is displayed
+    #And "username" submitted value is "Agus bosso"
+    #And "password" submitted value is "corona123"
+    #And "comments" submitted value is "HTML uses form elements with sub input, label, textarea, select and option elements."
 

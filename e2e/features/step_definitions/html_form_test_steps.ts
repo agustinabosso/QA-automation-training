@@ -29,9 +29,16 @@ When(/^I enter "([^"]*)" in "([^"]*)" field$/, async (text, option) => {
     }
 });
 
+
 When(/^I click on "([^"]*)" button$/, async (buttonText) => {
     await htmlFormTestPage.clickOnSubmitButton();
 });
+
+When(/^I select checkbox "([^"]*)" in checkbox items section$/, async (option) => {
+    await htmlFormTestPage.selectCheckboxByText(option);
+    await browser.sleep(4000);
+});
+
 
 // THEN
 Then(/^I validate the page title is "([^"]*)"$/, async (title) => {
