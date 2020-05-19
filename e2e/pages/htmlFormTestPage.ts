@@ -64,15 +64,25 @@ export class HtmlFormTestPage {
 
   public async selectCheckboxByText(text) {
     const size = await this.checkboxes.count();
-    console.log("Size ", size);
+    //console.log("Size ", size);
     for (let i=0; i<size; i++)  {
       const checkbox = this.checkboxes.get(i);
       // console.log("Checkbox ", checkbox);
       const checkboxText = await checkbox.getAttribute("value");
-      console.log("Value ", checkboxText);
+      //console.log("Value ", checkboxText);
+      //console.log("IsSelected ", isCheckboxSelected);
+      if (checkboxText.includes(text)) {
+        await checkbox.click();
+      }
+    }
+  }
+
+  public async cleanAllOptions() {
+    const size = await this.checkboxes.count();
+    for(let i=0; i<size; i++) {
+      const checkbox = this.checkboxes.get(i);
       const isCheckboxSelected = await checkbox.isSelected();
-      console.log("IsSelected ", isCheckboxSelected);
-      if (!(checkboxText.includes(text) && !isCheckboxSelected)) {
+      if (isCheckboxSelected) {
         await checkbox.click();
       }
     }

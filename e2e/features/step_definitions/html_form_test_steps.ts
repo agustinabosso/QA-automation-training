@@ -39,9 +39,12 @@ When(/^I select checkbox "([^"]*)" in checkbox items section$/, async (option) =
     await browser.sleep(4000);
 });
 
+When(/^I deselect all the option$/, async () => {
+    await htmlFormTestPage.cleanAllOptions();
+});
 
 // THEN
 Then(/^I validate the page title is "([^"]*)"$/, async (title) => {
     assert.strictEqual(await htmlFormTestPage.getPageTitleText(), title);
-    await browser.sleep(4000);
+    await browser.sleep(5000);
 });
