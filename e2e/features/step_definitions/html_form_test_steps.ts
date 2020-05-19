@@ -43,6 +43,15 @@ When(/^I deselect all the option$/, async () => {
     await htmlFormTestPage.cleanAllOptions();
 });
 
+When(/^I select "([^"]*)" from (dropdown|multiple selection)$/,  async (option, type) => {
+    await htmlFormTestPage.selectSelectionOption(option);
+    await browser.sleep(3000);
+});
+
+When(/^I deselect all options in multiple selects value$/, async () => {
+    await htmlFormTestPage.deselectAllOptions();
+});
+
 // THEN
 Then(/^I validate the page title is "([^"]*)"$/, async (title) => {
     assert.strictEqual(await htmlFormTestPage.getPageTitleText(), title);

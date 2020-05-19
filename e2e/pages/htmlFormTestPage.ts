@@ -14,6 +14,7 @@ export class HtmlFormTestPage {
   public commentTextArea: ElementFinder;
   public submitButton: ElementFinder;
   public checkboxes: ElementArrayFinder;
+  public multipleSelect: ElementArrayFinder;
 
   constructor() {
     this.usernameInput = element(by.name("username"));
@@ -23,6 +24,7 @@ export class HtmlFormTestPage {
     this.pageTitle = element(by.tagName("h1"));
     this.submitButton = element(by.buttonText("submit"));
     this.checkboxes = element.all(by.name("checkboxes[]"));
+    this.multipleSelect = element.all(by.css("[name='multipleselect[]'] > option"));
   }
 
   /**
@@ -86,5 +88,20 @@ export class HtmlFormTestPage {
         await checkbox.click();
       }
     }
+  }
+
+  public async selectSelectionOption(option) {
+    const selectionOption = element(by.cssContainingText('option', option));
+    if(!await selectionOption.isSelected()) {
+      await selectionOption.click();
+    }
+  }
+
+  public async deselectAllOptions() {
+    await this.multipleSelect.each(async (multipleSelectOption) => {
+      if (await multipleSelectOption.isSelected()) {
+        await multipleSelectOption.click();
+      }
+    });
   }
 }
